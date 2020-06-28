@@ -1,9 +1,11 @@
 DOCKER_IMAGE := darkf-build-testing:latest
-TERM := docker run --rm -it -v $(shell pwd):/darkf-build-testing -w /darkf-build-testing -e PYTTHONPATH=. hub.docker.com/darshika/${DOCKER_IMAGE}
-TESTENV	:= docker run --rm -v $(shell pwd):/darkf-build-testing -w /darkf-build-testing -e PYTTHONPATH=. hub.docker.com/darshika/${DOCKER_IMAGE}
+TERM := docker run --rm -it -v $(shell pwd):/darkf-build-testing -w /darkf-build-testing -e PYTTHONPATH=. darshika/${DOCKER_IMAGE}
+TESTENV	:= docker run --rm -v $(shell pwd):/darkf-build-testing -w /darkf-build-testing -e PYTTHONPATH=. darshika/${DOCKER_IMAGE}
 
 clean:
-	rm -rf __pycache__ alchemist/__pycache__ tests/__pycache__ .pytest_cache .coverage
+	rm -rf __pycache__ robot_simulator/__pycache__ tests/__pycache__ .pytest_cache .coverage
+	rm -rf __pycache__ robot_simulator/grid/__pycache__ robot_simulator/agent/__pycache__ robot_simulator/commands/__pycache__
+	rm -rf .mypy_cache/
 	rm -rf .eggs *.egg-info dist/*
 
 test: clean
@@ -17,7 +19,7 @@ test-verbose: clean
 	$(TESTENV) python setup.py test --pytest-args="-s"
 
 test-missing: clean
-	$(TESTENV) python setup.py test --pytest-args="--cov-report=term-missing|--cov=alchemist"
+	$(TESTENV) python setup.py test --pytest-args="--cov-report=term-missing|--cov=robot_simulator"
 
 bash:
 	$(TERM) bash
@@ -26,9 +28,9 @@ python:
 	$(TERM) python
 
 test-python-lint:
-	$(TESTENV) /opt/conda/bin/black -l 79 --check .
+	$(TESTENV) black -l 79 --check .
 
 test-python-types:
-	$(TESTENV) /opt/conda/bin/mypy --ignore-missing-imports /alchemist
+	$(TESTENV) mypy --ignore-missing-imports robot_simulator
 
 .PHONY: test bash clean python

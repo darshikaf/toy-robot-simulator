@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from typing import Optional
+
 from robot_simulator.errors import InvalidCommandFormatError, NoneNumericError
 
 
@@ -11,14 +13,14 @@ class Configuration:
         self.direction = self._parse_position(line, flag="F")
         self.command_id = self._parse_command(line)
 
-    def _parse_command(self, line: str) -> str:
+    def _parse_command(self, line: str) -> Optional[str]:
         if line.split()[
             0
         ]:  # TODO: split by regex to handle whitespaces, handle casesensitive
             return line.split()[0]
         return None
 
-    def _parse_position(self, line: str, flag: str) -> str:
+    def _parse_position(self, line: str, flag: str) -> Optional[str]:
         if line.split()[0] == "PLACE":
             try:
                 if flag == "X":

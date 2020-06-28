@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import re
 import sys
-from typing import List, TextIO
+from typing import Any, List, TextIO
 
 import click
 
@@ -40,7 +39,7 @@ def start(file_path: TextIO) -> None:
     execute(sys.stdin)
 
 
-def execute(line: List) -> None:
+def execute(line: List[str]) -> None:
     simulation = Simulation()
 
     for cmd in line:

@@ -23,12 +23,12 @@ class Direction(object):
         self.value = value
         self.vector = self.VECTORS[value]
 
-    def __eq__(self, other: Direction) -> bool:
+    def __eq__(self, other: object) -> bool:
         if isinstance(other, Direction):
             return self.value == other.value
         return NotImplemented
 
-    def __ne__(self, other: Direction) -> bool:
+    def __ne__(self, other: object) -> bool:
         if isinstance(other, Direction):
             return not (self == other)
         return NotImplemented

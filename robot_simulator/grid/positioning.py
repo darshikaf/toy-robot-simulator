@@ -11,12 +11,12 @@ class Point:
         self.x = x
         self.y = y
 
-    def __eq__(self, other: Point) -> bool:
+    def __eq__(self, other: object) -> bool:
         if isinstance(other, Point):
             return (self.x == other.x) and (self.y == other.y)
         return NotImplemented
 
-    def __ne__(self, other: Point) -> bool:
+    def __ne__(self, other: object) -> bool:
         if isinstance(other, Point):
             return not (self == other)
         return NotImplemented
