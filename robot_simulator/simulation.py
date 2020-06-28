@@ -3,16 +3,17 @@
 
 from typing import Union
 
-from robot_simulator.grid.board import Board
+from robot_simulator.agent.robot import Robot
 from robot_simulator.commands.commands import (
     PlaceCommand,
     MoveCommand,
     LeftCommand,
     RightCommand,
     ReportCommand,
+    StopCommand,
 )
 from robot_simulator.errors import MoveOutOfBoundsError, MissingPlaceError
-from robot_simulator.agent.robot import Robot
+from robot_simulator.grid.board import Board
 
 
 class Simulation:
@@ -23,7 +24,12 @@ class Simulation:
     def run(
         self,
         command: Union[
-            PlaceCommand, MoveCommand, LeftCommand, RightCommand, ReportCommand
+            PlaceCommand,
+            MoveCommand,
+            LeftCommand,
+            RightCommand,
+            ReportCommand,
+            StopCommand,
         ],
     ) -> None:
         try:

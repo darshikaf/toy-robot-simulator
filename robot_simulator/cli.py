@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from typing import Any, List, TextIO
+from typing import List, TextIO
 
 import click
 
+from robot_simulator import __version__
 from robot_simulator.commands.base import BaseCommand
 from robot_simulator.config import Configuration
 from robot_simulator.simulation import Simulation
-from robot_simulator import __version__
 
 
 @click.group()
@@ -43,7 +43,7 @@ def execute(line: List[str]) -> None:
     simulation = Simulation()
 
     for cmd in line:
-        config = Configuration(cmd)
+        config = Configuration(cmd.upper())
         command = BaseCommand.factory(config)
         simulation.run(command)
 

@@ -14,9 +14,7 @@ class Configuration:
         self.command_id = self._parse_command(line)
 
     def _parse_command(self, line: str) -> Optional[str]:
-        if line.split()[
-            0
-        ]:  # TODO: split by regex to handle whitespaces, handle casesensitive
+        if line.split()[0]:
             return line.split()[0]
         return None
 

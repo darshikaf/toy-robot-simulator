@@ -7,7 +7,7 @@ from robot_simulator.errors import InvalidDirectionError
 from robot_simulator.grid.positioning import Vector
 
 
-class Direction(object):
+class Direction:
     VALUES = ["NORTH", "EAST", "SOUTH", "WEST"]
     NORTH, EAST, SOUTH, WEST = VALUES
     VECTORS = {

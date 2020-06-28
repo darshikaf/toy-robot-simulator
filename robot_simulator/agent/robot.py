@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from robot_simulator.grid.board import Board
 from robot_simulator.agent.direction import Direction
 from robot_simulator.errors import MissingPlaceError, MoveOutOfBoundsError
+from robot_simulator.grid.board import Board
 from robot_simulator.grid.positioning import Point
 
 

@@ -7,8 +7,8 @@ import sys
 from abc import ABC, abstractmethod
 from typing import List
 
-from robot_simulator.config import Configuration
 from robot_simulator.agent.direction import Direction
+from robot_simulator.config import Configuration
 from robot_simulator.errors import InvalidParametersError, UnsupportedCommand
 from robot_simulator.grid.positioning import Point
 
@@ -27,6 +27,7 @@ class BaseCommand(ABC):
         from robot_simulator.commands.commands import LeftCommand
         from robot_simulator.commands.commands import RightCommand
         from robot_simulator.commands.commands import ReportCommand
+        from robot_simulator.commands.commands import StopCommand
 
         supported_commands = {
             PlaceCommand.COMMAND_ID: PlaceCommand,
@@ -34,6 +35,7 @@ class BaseCommand(ABC):
             LeftCommand.COMMAND_ID: LeftCommand,
             RightCommand.COMMAND_ID: RightCommand,
             ReportCommand.COMMAND_ID: ReportCommand,
+            StopCommand.COMMAND_ID: StopCommand,
         }
 
         input_command_id = config.command_id

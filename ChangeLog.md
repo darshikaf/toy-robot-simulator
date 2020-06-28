@@ -1,3 +1,10 @@
+# 0.1.1
+
+* Added a command to exit active session.
+* Added handling for commands given in lower case.
+* Added mypy type checking support.
+
+
 # 0.1.0
 
 * Added Board and Robot.

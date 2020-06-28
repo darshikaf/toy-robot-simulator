@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import sys
+
+from robot_simulator.agent.direction import Direction
 from robot_simulator.commands.base import BaseCommand
 from robot_simulator.config import Configuration
-from robot_simulator.agent.direction import Direction
 from robot_simulator.errors import InvalidParametersError
 from robot_simulator.grid.positioning import Point
 
@@ -58,4 +60,14 @@ class ReportCommand(BaseCommand):
 
     def invoke(self, target):
         print(f"Current Position: {target.report()}")
-        # sys.exit()
+
+
+class StopCommand(BaseCommand):
+    COMMAND_ID = "STOP"
+
+    def __init__(self, config: Configuration) -> None:
+        self.__dict__ = config.__dict__.copy()
+
+    def invoke(self, target):
+        print("Exiting the session...")
+        sys.exit()
