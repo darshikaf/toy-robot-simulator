@@ -1,6 +1,6 @@
 DOCKER_IMAGE := darkf-build-testing:latest
-TERM := docker run --rm -it -v $(shell pwd):/darkf-build-testing -w /darkf-build-testing -e PYTTHONPATH=. darshika/${DOCKER_IMAGE}
-TESTENV	:= docker run --rm -v $(shell pwd):/darkf-build-testing -w /darkf-build-testing -e PYTTHONPATH=. darshika/${DOCKER_IMAGE}
+TERM := docker run --rm -it -v $(shell pwd):/robot_simulator -w /robot_simulator -e PYTTHONPATH=. darshika/${DOCKER_IMAGE}
+TESTENV	:= docker run --rm -v $(shell pwd):/robot_simulator -w /robot_simulator -e PYTTHONPATH=. darshika/${DOCKER_IMAGE}
 
 clean:
 	rm -rf __pycache__ robot_simulator/__pycache__ tests/__pycache__ .pytest_cache .coverage
