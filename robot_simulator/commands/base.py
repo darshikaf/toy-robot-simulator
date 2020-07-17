@@ -21,7 +21,7 @@ class BaseCommand(ABC):
         pass
 
     @staticmethod
-    def factory(config: Configuration) -> Command:
+    def factory(config: Configuration) -> BaseCommand:
         from robot_simulator.commands.commands import PlaceCommand
         from robot_simulator.commands.commands import MoveCommand
         from robot_simulator.commands.commands import LeftCommand
