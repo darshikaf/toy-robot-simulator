@@ -40,7 +40,8 @@ setup(
     author="darshikaf",
     author_email="darshikaf@company.com.au",
     keywords="cli",
-    packages=find_packages(include=["robot_simulator"]),classifiers=[
+    packages=find_packages(include=["robot_simulator"]),
+    classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
