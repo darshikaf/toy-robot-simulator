@@ -15,6 +15,4 @@ pipeline {
         // Publish as a Python package
         sh 'python setup.py sdist bdist_wheel; twine upload --repository testpypi dist/*'
       }
-    }
-  }
 }
