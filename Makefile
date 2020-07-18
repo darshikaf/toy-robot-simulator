@@ -27,6 +27,9 @@ bash:
 python:
 	$(TERM) python
 
+release:
+	$(TERM) python setup.py sdist bdist_wheel; twine upload --repository testpypi dist/*
+
 test-python-lint:
 	$(TESTENV) black -l 79 --check .
 

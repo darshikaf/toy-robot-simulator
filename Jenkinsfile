@@ -11,8 +11,11 @@ pipeline {
           }
         }
     }
+    stage('release') {
+      when { branch 'master' }
       steps {
         // Publish as a Python package
-        sh 'python setup.py sdist bdist_wheel; twine upload --repository testpypi dist/*'
+        sh 'make release'
       }
+    }
 }
