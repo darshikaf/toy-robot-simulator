@@ -10,7 +10,6 @@ pipeline {
           sh 'make test'
           }
         }
-    }
     stage('release') {
       when { branch 'master' }
       steps {
@@ -18,4 +17,5 @@ pipeline {
         sh 'make release'
       }
     }
+  }
 }
