@@ -36,10 +36,15 @@ setup(
     version=__version__,
     description="CLI tool that simulates movements of an agent (robot) on a specified area.",
     long_description=open("README.md").read(),
-    author="Jane Doe",
-    author_email="Jane.Doe@company.com.au",
+    url="https://github.com/darshikaf/toy-robot-simulator/",
+    author="darshikaf",
+    author_email="darshikaf@company.com.au",
     keywords="cli",
-    packages=find_packages(include=["robot_simulator"]),
+    packages=find_packages(include=["robot_simulator"]),classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
     include_package_data=True,
     install_requires=requirements,
     entry_points={
