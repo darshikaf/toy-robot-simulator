@@ -11,7 +11,7 @@ pipeline {
           }
         }
     stage('release') {
-      when { branch 'master' }
+      // when { branch 'master' }
       steps {
         // Publish as a Python package
         sh 'make release'
