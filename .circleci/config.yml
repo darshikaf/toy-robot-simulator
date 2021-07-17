@@ -6,10 +6,7 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - test-python-install:
-          version: "3.8"
-          requires:
-            - build
+
 jobs:
   build:
     docker:
