@@ -1,0 +1,17 @@
+version: 2.1
+jobs:
+  build_test:
+    docker:
+      - image: darshika/build-python:latest
+    steps:
+      - checkout  # checkout source code to working directory
+      - run:
+          command: |  # create whl and use pipenv to install dependencies
+            make test
+            make test-python-lint
+            make test-python-types
+
+workflows:
+  build_test_publish:
+    jobs:
+      - build_test

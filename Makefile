@@ -1,4 +1,4 @@
-DOCKER_IMAGE := darkf-build-testing:latest
+DOCKER_IMAGE := build-python:latest
 TERM := docker run --rm -it -v $(shell pwd):/robot_simulator -w /robot_simulator -e PYTTHONPATH=. darshika/${DOCKER_IMAGE}
 TESTENV	:= docker run --rm -v $(shell pwd):/robot_simulator -w /robot_simulator -e PYTTHONPATH=. darshika/${DOCKER_IMAGE}
 
