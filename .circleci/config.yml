@@ -11,7 +11,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: ubuntu-2004:202104-01
+      - image: circleci/ubuntu-2004:202104-01
     steps:
       - checkout
       - restore_cache:
