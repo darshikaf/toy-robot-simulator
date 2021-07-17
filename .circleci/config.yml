@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build_test:
     docker:
-      - image: darshika/build-python:latest
+      - image: cimg/base:2021.04
     steps:
       - checkout  # checkout source code to working directory
       - run:

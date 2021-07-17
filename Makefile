@@ -9,8 +9,8 @@ clean:
 	$(TESTENV) rm -rf .eggs *.egg-info dist/*
 
 test: clean
-	coverage run setup.py test --pytest-args="--junit-xml=tests/results.xml"
-	coverage report
+	$(TESTENV) coverage run setup.py test --pytest-args="--junit-xml=tests/results.xml"
+	$(TESTENV) coverage report
 
 test-specific: clean
 	$(TESTENV) python setup.py test --pytest-args="-k $(TEST)|-s|-v"
