@@ -3,14 +3,14 @@ TERM := docker run --rm -it -v $(shell pwd):/robot_simulator -w /robot_simulator
 TESTENV	:= docker run --rm -v $(shell pwd):/robot_simulator -w /robot_simulator -e PYTTHONPATH=. darshika/${DOCKER_IMAGE}
 
 clean:
-	rm -rf __pycache__ robot_simulator/__pycache__ tests/__pycache__ .pytest_cache .coverage
-	rm -rf __pycache__ robot_simulator/grid/__pycache__ robot_simulator/agent/__pycache__ robot_simulator/commands/__pycache__
-	rm -rf .mypy_cache/
-	rm -rf .eggs *.egg-info dist/*
+	$(TESTENV) rm -rf __pycache__ robot_simulator/__pycache__ tests/__pycache__ .pytest_cache .coverage
+	$(TESTENV) rm -rf __pycache__ robot_simulator/grid/__pycache__ robot_simulator/agent/__pycache__ robot_simulator/commands/__pycache__
+	$(TESTENV) rm -rf .mypy_cache/
+	$(TESTENV) rm -rf .eggs *.egg-info dist/*
 
 test: clean
-	coverage run setup.py test --pytest-args="--junit-xml=tests/results.xml"
-	coverage report
+	$(TESTENV) coverage run setup.py test --pytest-args="--junit-xml=tests/results.xml"
+	$(TESTENV) coverage report
 
 test-specific: clean
 	$(TESTENV) python setup.py test --pytest-args="-k $(TEST)|-s|-v"

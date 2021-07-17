@@ -1,4 +1,5 @@
 version: 2.1
+
 workflows:
   build_and_deploy:
     jobs:
@@ -10,7 +11,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/python:3.7
+      - image: ubuntu-2004:202104-01
     steps:
       - checkout
       - restore_cache:
